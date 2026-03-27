@@ -3,202 +3,226 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Growth Agency</title>
+<title>Naga Growth Agency</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
 
-body{background:#f5f5f5;color:#222;}
+body{background:#0f172a;color:white;scroll-behavior:smooth;}
 
-/* PAGE SYSTEM */
-.page{display:none;}
-.active{display:block;}
+/* NAV */
+nav{
+display:flex;justify-content:space-between;
+padding:15px 20px;background:#020617;
+position:sticky;top:0;z-index:1000;
+}
+nav a{color:white;text-decoration:none;margin:0 10px;font-size:14px;}
 
 /* HERO */
 .hero{
+padding:80px 20px;text-align:center;
 background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
-url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d');
+url('https://images.unsplash.com/photo-1492724441997-5dc865305da7');
 background-size:cover;
-color:white;
-padding:80px 20px;
-text-align:center;
+}
+.hero h1{font-size:32px;}
+.btn{
+background:#22c55e;padding:12px 25px;
+border-radius:30px;color:white;text-decoration:none;
+display:inline-block;margin-top:10px;
 }
 
-.btn{
-padding:12px 25px;
-background:#c59d5f;
-color:white;
-border-radius:30px;
-text-decoration:none;
-display:inline-block;
-margin:5px;
-}
+/* SECTION */
+.section{padding:60px 20px;text-align:center;}
 
 /* SERVICES */
 .services{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:20px;
-padding:40px;
 }
-
 .card{
-background:white;
-padding:15px;
-border-radius:15px;
-box-shadow:0 5px 15px rgba(0,0,0,0.1);
-cursor:pointer;
+background:rgba(255,255,255,0.05);
+padding:20px;border-radius:15px;
+backdrop-filter:blur(10px);
+cursor:pointer;transition:0.3s;
 }
+.card:hover{transform:translateY(-5px);}
 
 .card img{
-width:100%;
-height:180px;
-object-fit:cover;
-border-radius:10px;
+width:100%;height:180px;
+object-fit:cover;border-radius:10px;
 }
 
-/* PAYMENT */
-.payment{
-background:#0f172a;
-color:white;
-padding:40px;
-text-align:center;
+/* PRICING */
+.pricing{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
 }
-
-.payment-box{
-max-width:400px;
-margin:auto;
-background:rgba(255,255,255,0.08);
-padding:25px;
+.price-card{
+background:#020617;padding:25px;
 border-radius:15px;
 }
+.price-card h1{color:#22c55e;}
 
-input{
-width:100%;
-padding:12px;
-margin:10px 0;
-border-radius:10px;
-border:none;
+/* TESTIMONIAL */
+.testimonial{
+background:#020617;padding:20px;
+border-radius:10px;margin:10px;
 }
 
-/* BACK BUTTON */
-.back{
-margin:20px;
-display:inline-block;
-cursor:pointer;
-color:#c59d5f;
+/* CONTACT */
+input,textarea{
+width:100%;padding:12px;margin:10px 0;
+border-radius:10px;border:none;
+}
+
+/* WHATSAPP */
+.whatsapp{
+position:fixed;bottom:20px;right:20px;
+}
+.whatsapp a{
+background:#25D366;padding:15px;
+border-radius:50%;text-decoration:none;color:white;
 }
 </style>
 </head>
 
 <body>
 
-<!-- HOME PAGE -->
-<div id="home" class="page active">
+<!-- NAV -->
+<nav>
+<h3>Naga Agency</h3>
+<div>
+<a href="#services">Services</a>
+<a href="#pricing">Pricing</a>
+<a href="#contact">Contact</a>
+</div>
+</nav>
 
+<!-- HERO -->
 <section class="hero">
 <h1>Grow Your Business 🚀</h1>
-<p>We generate leads & sales</p>
-<a href="tel:+919080985296" class="btn">Call</a>
-<a href="https://wa.me/919080985296" class="btn">WhatsApp</a>
+<p>We generate leads & sales using ads</p>
+<a href="https://wa.me/919080985296" class="btn">Get Started</a>
 </section>
 
+<!-- SERVICES -->
+<section class="section" id="services">
+<h2>Services</h2>
 <div class="services">
 
-<div class="card" onclick="openPage('meta')">
+<div class="card" onclick="openService('meta')">
 <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71">
 <h3>Meta Ads</h3>
 </div>
 
-<div class="card" onclick="openPage('google')">
+<div class="card" onclick="openService('google')">
 <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3">
 <h3>Google Ads</h3>
 </div>
 
-<div class="card" onclick="openPage('branding')">
-<img src="https://images.unsplash.com/photo-1492724441997-5dc865305da7">
+<div class="card" onclick="openService('branding')">
+<img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d">
 <h3>Personal Branding</h3>
 </div>
 
-<div class="card" onclick="openPage('social')">
+<div class="card" onclick="openService('social')">
 <img src="https://images.unsplash.com/photo-1611162616475-46b635cb6868">
 <h3>Social Media</h3>
 </div>
 
 </div>
+</section>
 
+<!-- SERVICE DETAIL -->
+<section class="section" id="serviceDetail">
+<h2 id="serviceTitle">Service</h2>
+<p id="serviceDesc">Click a service to view details</p>
+</section>
+
+<!-- PRICING -->
+<section class="section" id="pricing">
+<h2>Pricing</h2>
+<div class="pricing">
+
+<div class="price-card">
+<h3>Basic</h3>
+<h1>₹5,000</h1>
+<p>1 Campaign<br>Basic Ads</p>
+<button class="btn" onclick="pay('5000')">Buy</button>
 </div>
 
-<!-- SERVICE PAGE TEMPLATE -->
-
-<div id="meta" class="page">
-<div class="back" onclick="goHome()">⬅ Back</div>
-<h2 style="padding:20px;">Meta Ads</h2>
-<p style="padding:20px;">✔ Ad creatives<br>✔ Audience targeting<br>✔ A/B testing<br>✔ Scaling ads</p>
+<div class="price-card">
+<h3>Pro</h3>
+<h1>₹10,000</h1>
+<p>Full Ads + Strategy</p>
+<button class="btn" onclick="pay('10000')">Buy</button>
 </div>
 
-<div id="google" class="page">
-<div class="back" onclick="goHome()">⬅ Back</div>
-<h2 style="padding:20px;">Google Ads</h2>
-<p style="padding:20px;">✔ Search ads<br>✔ Display ads<br>✔ Retargeting<br>✔ High intent leads</p>
+<div class="price-card">
+<h3>Premium</h3>
+<h1>₹20,000</h1>
+<p>Full Growth System</p>
+<button class="btn" onclick="pay('20000')">Buy</button>
 </div>
-
-<div id="branding" class="page">
-<div class="back" onclick="goHome()">⬅ Back</div>
-<h2 style="padding:20px;">Personal Branding</h2>
-<p style="padding:20px;">✔ Content strategy<br>✔ Reels growth<br>✔ Authority build</p>
-</div>
-
-<div id="social" class="page">
-<div class="back" onclick="goHome()">⬅ Back</div>
-<h2 style="padding:20px;">Social Media</h2>
-<p style="padding:20px;">✔ Daily posts<br>✔ Engagement<br>✔ Growth strategy</p>
-</div>
-
-<!-- PAYMENT -->
-<section class="payment">
-<div class="payment-box">
-
-<h2>Marketing Package</h2>
-<h1 style="color:#22c55e;">₹10,000</h1>
-
-<input type="text" id="name" placeholder="Name">
-<input type="text" id="phone" placeholder="Phone">
-
-<button class="btn" onclick="payNow()">Pay Now</button>
-
-<a href="upi://pay?pa=9080985296@ybl&pn=Naga&am=10000&cu=INR" class="btn">Pay via UPI</a>
 
 </div>
 </section>
 
+<!-- CONTACT -->
+<section class="section" id="contact">
+<h2>Contact</h2>
+
+<input type="text" id="name" placeholder="Name">
+<input type="text" id="phone" placeholder="Phone">
+
+<button class="btn" onclick="sendLead()">Submit</button>
+</section>
+
+<!-- WHATSAPP -->
+<div class="whatsapp">
+<a href="https://wa.me/919080985296">💬</a>
+</div>
+
 <script>
-function openPage(id){
-document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-document.getElementById(id).classList.add('active');
+function openService(type){
+let title="",desc="";
+
+if(type=="meta"){
+title="Meta Ads";
+desc="Ad creatives, targeting, scaling strategies.";
+}
+if(type=="google"){
+title="Google Ads";
+desc="Search ads, display, retargeting.";
+}
+if(type=="branding"){
+title="Personal Branding";
+desc="Content + reels + authority.";
+}
+if(type=="social"){
+title="Social Media";
+desc="Posting, engagement, growth.";
 }
 
-function goHome(){
-document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-document.getElementById('home').classList.add('active');
+document.getElementById("serviceTitle").innerText=title;
+document.getElementById("serviceDesc").innerText=desc;
+window.location="#serviceDetail";
 }
 
-function payNow(){
+function sendLead(){
 let name=document.getElementById("name").value;
 let phone=document.getElementById("phone").value;
 
-if(name==""||phone==""){
-alert("Fill details");
-return;
+window.open(`https://wa.me/919080985296?text=Lead:%0AName:${name}%0APhone:${phone}`);
 }
 
-window.location.href="upi://pay?pa=9080985296@ybl&pn=Naga&am=10000&cu=INR";
-
-setTimeout(()=>{
-window.open("https://wa.me/919080985296?text=Paid%20₹10,000%0AName:"+name+"%0APhone:"+phone);
-},5000);
+function pay(amount){
+window.location=`upi://pay?pa=9080985296@ybl&pn=Naga&am=${amount}&cu=INR`;
 }
 </script>
 

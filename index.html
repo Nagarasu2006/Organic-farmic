@@ -3,250 +3,235 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Smart Agriculture System</title>
+<title>Growth Agency</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
 
-body{background:#0b1a2a;color:#fff}
-
-/* NAV */
-nav{
-display:flex;
-justify-content:space-between;
-padding:15px 20px;
-background:#020617;
-position:sticky;
-top:0;
-z-index:1000;
-}
-nav h1{color:#00ff9d}
-nav a{color:#ccc;margin-left:15px;text-decoration:none}
+body{background:#f5f5f5;color:#222;}
 
 /* HERO */
 .hero{
+background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
+url('https://images.unsplash.com/photo-1556761175-b413da4baf72');
+background-size:cover;
+background-position:center;
+color:white;
 padding:80px 20px;
 text-align:center;
-background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
-url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6');
-background-size:cover;
 }
-.hero h1{font-size:38px}
-.hero p{margin:10px 0;color:#ddd}
+
+.hero h1{font-size:32px;}
+.hero p{margin:15px 0;}
+
 .btn{
+display:inline-block;
 padding:12px 25px;
-background:#00ff9d;
-color:#000;
+background:#c59d5f;
+color:white;
 border-radius:30px;
 text-decoration:none;
-display:inline-block;
-margin-top:10px;
+margin:5px;
+transition:0.3s;
 }
+.btn:hover{background:#a67c3b;}
 
 /* SECTION */
-.section{
-padding:60px 20px;
-text-align:center;
-}
-.section h2{margin-bottom:20px}
+.section{padding:50px 20px;text-align:center;}
+.section h2{margin-bottom:20px;}
 
-/* GRID */
-.grid{
+/* SERVICES */
+.services{
 display:grid;
-grid-template-columns:1fr;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:20px;
 }
 
-/* CARD */
 .card{
-background:#111827;
-padding:20px;
+background:white;
 border-radius:15px;
-box-shadow:0 5px 20px rgba(0,0,0,0.5);
-}
-
-/* DASHBOARD */
-.dashboard{
-display:none;
-padding:20px;
-}
-.dashboard h2{margin-bottom:20px}
-
-.dashboard-box{
-background:#111827;
 padding:15px;
-margin:10px 0;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+cursor:pointer;
+transition:0.3s;
+}
+.card:hover{transform:translateY(-5px);}
+
+.card img{
+width:100%;
+height:180px;
+object-fit:cover;
 border-radius:10px;
 }
 
-/* FORM */
-input,select{
+.card h3{margin-top:10px;}
+
+/* MODAL */
+.modal{
+display:none;
+position:fixed;
+top:0;left:0;
+width:100%;height:100%;
+background:rgba(0,0,0,0.7);
+justify-content:center;
+align-items:center;
+padding:20px;
+}
+
+.modal-content{
+background:white;
+padding:25px;
+border-radius:15px;
+max-width:400px;
+text-align:left;
+}
+
+.close{
+float:right;
+cursor:pointer;
+font-size:20px;
+}
+
+/* CONTACT */
+.contact input,.contact textarea{
 width:100%;
 padding:12px;
 margin:10px 0;
-border-radius:8px;
-border:none;
-}
-
-button{
-padding:12px;
-width:100%;
-background:#00ff9d;
-border:none;
-border-radius:25px;
+border-radius:10px;
+border:1px solid #ccc;
 }
 
 /* FOOTER */
-footer{
+.footer{
+background:#0f2f2f;
+color:white;
 text-align:center;
-padding:20px;
-background:#020617;
-margin-top:30px;
+padding:30px;
+margin-top:40px;
 }
 
-/* DESKTOP */
-@media(min-width:768px){
-.grid{
-grid-template-columns:repeat(3,1fr);
+/* WHATSAPP */
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
 }
-.hero h1{font-size:50px}
+.whatsapp a{
+background:#25D366;
+color:white;
+padding:15px;
+border-radius:50%;
+text-decoration:none;
 }
-
 </style>
 </head>
 
 <body>
 
-<!-- NAV -->
-<nav>
-<h1>AgriTech</h1>
-<div>
-<a href="#features">Features</a>
-<a href="#ai">AI</a>
-<a href="#register">Register</a>
-</div>
-</nav>
-
 <!-- HERO -->
 <section class="hero">
-<h1>Smart Agriculture Platform 🌾</h1>
-<p>AI-powered farming solution for modern farmers</p>
-<a href="#register" class="btn">Get Started</a>
+<h1>Grow Your Business Online 🚀</h1>
+<p>We help brands get leads, sales & growth.</p>
+
+<a href="tel:+919080985296" class="btn">📞 Call</a>
+<a href="https://wa.me/919080985296" class="btn">💬 WhatsApp</a>
 </section>
 
-<!-- FEATURES -->
-<section class="section" id="features">
-<h2>Core Features</h2>
-<div class="grid">
-<div class="card">🌱 Crop Recommendation</div>
-<div class="card">🌦 Weather Updates</div>
-<div class="card">🧪 Fertilizer Suggestions</div>
-<div class="card">🛒 Sell Products</div>
-<div class="card">📊 Farm Analytics</div>
-<div class="card">📱 Mobile Friendly</div>
+<!-- SERVICES -->
+<section class="section">
+<h2>Our Services</h2>
+
+<div class="services">
+
+<div class="card" onclick="openModal('meta')">
+<img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113">
+<h3>Meta Ads</h3>
+<p>Facebook & Instagram ads</p>
+</div>
+
+<div class="card" onclick="openModal('google')">
+<img src="https://images.unsplash.com/photo-1581091870622-1e7d82f49a4c">
+<h3>Google Ads</h3>
+<p>High intent leads</p>
+</div>
+
+<div class="card" onclick="openModal('branding')">
+<img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d">
+<h3>Personal Branding</h3>
+<p>Build authority</p>
+</div>
+
+<div class="card" onclick="openModal('social')">
+<img src="https://images.unsplash.com/photo-1611926653458-09294b3142bf">
+<h3>Social Media Management</h3>
+<p>Content & growth</p>
+</div>
+
 </div>
 </section>
 
-<!-- AI SECTION -->
-<section class="section" id="ai">
-<h2>AI Features</h2>
-<div class="grid">
-<div class="card">🤖 Crop Prediction</div>
-<div class="card">📈 Price Prediction</div>
-<div class="card">🌍 Smart Insights</div>
+<!-- MODAL -->
+<div class="modal" id="modal">
+<div class="modal-content">
+<span class="close" onclick="closeModal()">✖</span>
+<h2 id="title"></h2>
+<p id="desc"></p>
 </div>
-</section>
-
-<!-- REGISTER -->
-<section class="section" id="register">
-<h2>Farmer Registration</h2>
-
-<input id="name" placeholder="Name">
-<input id="email" placeholder="Email">
-<input id="location" placeholder="Location">
-
-<select id="soil">
-<option>red</option>
-<option>black</option>
-<option>alluvial</option>
-</select>
-
-<button onclick="login()">Register & Continue</button>
-
-</section>
-
-<!-- DASHBOARD -->
-<section class="dashboard" id="dashboard">
-
-<h2>Farmer Dashboard</h2>
-
-<div class="dashboard-box">
-<h3>🌱 Crop Suggestion</h3>
-<button onclick="crop()">Get Suggestion</button>
-<p id="cropResult"></p>
 </div>
 
-<div class="dashboard-box">
-<h3>🌦 Weather</h3>
-<p>Coming Soon (API)</p>
-</div>
+<!-- CONTACT -->
+<section class="section contact">
+<h2>Contact Us</h2>
 
-<div class="dashboard-box">
-<h3>💰 Market Price</h3>
-<p>Coming Soon</p>
-</div>
+<input type="text" placeholder="Name">
+<input type="email" placeholder="Email">
+<textarea placeholder="Message"></textarea>
 
-<div class="dashboard-box">
-<h3>📊 Your Details</h3>
-<p id="userData"></p>
-</div>
-
+<a href="https://wa.me/919080985296?text=Hi%20I%20am%20interested" class="btn">Send Message</a>
 </section>
 
 <!-- FOOTER -->
-<footer>
-<p>© 2026 Smart Agriculture</p>
-</footer>
+<div class="footer">
+<h2>Let's Work Together</h2>
+<p>Growth Agency</p>
+</div>
+
+<!-- WHATSAPP FLOAT -->
+<div class="whatsapp">
+<a href="https://wa.me/919080985296">💬</a>
+</div>
 
 <script>
+function openModal(type){
+let title="",desc="";
 
-/* LOGIN */
-function login(){
-let name=document.getElementById('name').value;
-let email=document.getElementById('email').value;
-let soil=document.getElementById('soil').value;
-
-if(!name||!email){
-alert("Fill all details");
-return;
+if(type=="meta"){
+title="Meta Ads";
+desc="Ad creatives, targeting, A/B testing, scaling for sales.";
+}
+if(type=="google"){
+title="Google Ads";
+desc="Search ads, display ads, retargeting campaigns.";
+}
+if(type=="branding"){
+title="Personal Branding";
+desc="Content strategy, reels, authority building.";
+}
+if(type=="social"){
+title="Social Media Management";
+desc="Posting, engagement, growth strategy.";
 }
 
-/* Hide register show dashboard */
-document.getElementById('register').style.display='none';
-document.getElementById('dashboard').style.display='block';
-
-/* Save data */
-localStorage.setItem("user",JSON.stringify({name,email,soil}));
-
-document.getElementById('userData').innerText=
-"Name: "+name+" | Soil: "+soil;
+document.getElementById("title").innerText=title;
+document.getElementById("desc").innerText=desc;
+document.getElementById("modal").style.display="flex";
 }
 
-/* CROP AI (simple logic) */
-function crop(){
-let user=JSON.parse(localStorage.getItem("user"));
-let soil=user.soil;
-
-let result="Rice";
-
-if(soil=="red") result="Groundnut";
-if(soil=="black") result="Cotton";
-
-document.getElementById('cropResult').innerText="Recommended: "+result;
+function closeModal(){
+document.getElementById("modal").style.display="none";
 }
-
 </script>
 
 </body>

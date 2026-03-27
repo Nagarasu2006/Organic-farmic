@@ -12,52 +12,45 @@
 
 body{background:#f5f5f5;color:#222;}
 
+/* PAGE SYSTEM */
+.page{display:none;}
+.active{display:block;}
+
 /* HERO */
 .hero{
 background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
-url('https://images.unsplash.com/photo-1556761175-b413da4baf72');
+url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d');
 background-size:cover;
-background-position:center;
 color:white;
 padding:80px 20px;
 text-align:center;
 }
 
-.hero h1{font-size:32px;}
-.hero p{margin:15px 0;}
-
 .btn{
-display:inline-block;
 padding:12px 25px;
 background:#c59d5f;
 color:white;
 border-radius:30px;
 text-decoration:none;
+display:inline-block;
 margin:5px;
-transition:0.3s;
 }
-.btn:hover{background:#a67c3b;}
-
-/* SECTION */
-.section{padding:50px 20px;text-align:center;}
-.section h2{margin-bottom:20px;}
 
 /* SERVICES */
 .services{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:20px;
+padding:40px;
 }
 
 .card{
 background:white;
-border-radius:15px;
 padding:15px;
+border-radius:15px;
 box-shadow:0 5px 15px rgba(0,0,0,0.1);
 cursor:pointer;
-transition:0.3s;
 }
-.card:hover{transform:translateY(-5px);}
 
 .card img{
 width:100%;
@@ -66,171 +59,146 @@ object-fit:cover;
 border-radius:10px;
 }
 
-.card h3{margin-top:10px;}
-
-/* MODAL */
-.modal{
-display:none;
-position:fixed;
-top:0;left:0;
-width:100%;height:100%;
-background:rgba(0,0,0,0.7);
-justify-content:center;
-align-items:center;
-padding:20px;
+/* PAYMENT */
+.payment{
+background:#0f172a;
+color:white;
+padding:40px;
+text-align:center;
 }
 
-.modal-content{
-background:white;
+.payment-box{
+max-width:400px;
+margin:auto;
+background:rgba(255,255,255,0.08);
 padding:25px;
 border-radius:15px;
-max-width:400px;
-text-align:left;
 }
 
-.close{
-float:right;
-cursor:pointer;
-font-size:20px;
-}
-
-/* CONTACT */
-.contact input,.contact textarea{
+input{
 width:100%;
 padding:12px;
 margin:10px 0;
 border-radius:10px;
-border:1px solid #ccc;
+border:none;
 }
 
-/* FOOTER */
-.footer{
-background:#0f2f2f;
-color:white;
-text-align:center;
-padding:30px;
-margin-top:40px;
-}
-
-/* WHATSAPP */
-.whatsapp{
-position:fixed;
-bottom:20px;
-right:20px;
-}
-.whatsapp a{
-background:#25D366;
-color:white;
-padding:15px;
-border-radius:50%;
-text-decoration:none;
+/* BACK BUTTON */
+.back{
+margin:20px;
+display:inline-block;
+cursor:pointer;
+color:#c59d5f;
 }
 </style>
 </head>
 
 <body>
 
-<!-- HERO -->
+<!-- HOME PAGE -->
+<div id="home" class="page active">
+
 <section class="hero">
-<h1>Grow Your Business Online 🚀</h1>
-<p>We help brands get leads, sales & growth.</p>
-
-<a href="tel:+919080985296" class="btn">📞 Call</a>
-<a href="https://wa.me/919080985296" class="btn">💬 WhatsApp</a>
+<h1>Grow Your Business 🚀</h1>
+<p>We generate leads & sales</p>
+<a href="tel:+919080985296" class="btn">Call</a>
+<a href="https://wa.me/919080985296" class="btn">WhatsApp</a>
 </section>
-
-<!-- SERVICES -->
-<section class="section">
-<h2>Our Services</h2>
 
 <div class="services">
 
-<div class="card" onclick="openModal('meta')">
-<img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113">
+<div class="card" onclick="openPage('meta')">
+<img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71">
 <h3>Meta Ads</h3>
-<p>Facebook & Instagram ads</p>
 </div>
 
-<div class="card" onclick="openModal('google')">
-<img src="https://images.unsplash.com/photo-1581091870622-1e7d82f49a4c">
+<div class="card" onclick="openPage('google')">
+<img src="https://images.unsplash.com/photo-1563986768609-322da13575f3">
 <h3>Google Ads</h3>
-<p>High intent leads</p>
 </div>
 
-<div class="card" onclick="openModal('branding')">
-<img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d">
+<div class="card" onclick="openPage('branding')">
+<img src="https://images.unsplash.com/photo-1492724441997-5dc865305da7">
 <h3>Personal Branding</h3>
-<p>Build authority</p>
 </div>
 
-<div class="card" onclick="openModal('social')">
-<img src="https://images.unsplash.com/photo-1611926653458-09294b3142bf">
-<h3>Social Media Management</h3>
-<p>Content & growth</p>
+<div class="card" onclick="openPage('social')">
+<img src="https://images.unsplash.com/photo-1611162616475-46b635cb6868">
+<h3>Social Media</h3>
 </div>
+
+</div>
+
+</div>
+
+<!-- SERVICE PAGE TEMPLATE -->
+
+<div id="meta" class="page">
+<div class="back" onclick="goHome()">⬅ Back</div>
+<h2 style="padding:20px;">Meta Ads</h2>
+<p style="padding:20px;">✔ Ad creatives<br>✔ Audience targeting<br>✔ A/B testing<br>✔ Scaling ads</p>
+</div>
+
+<div id="google" class="page">
+<div class="back" onclick="goHome()">⬅ Back</div>
+<h2 style="padding:20px;">Google Ads</h2>
+<p style="padding:20px;">✔ Search ads<br>✔ Display ads<br>✔ Retargeting<br>✔ High intent leads</p>
+</div>
+
+<div id="branding" class="page">
+<div class="back" onclick="goHome()">⬅ Back</div>
+<h2 style="padding:20px;">Personal Branding</h2>
+<p style="padding:20px;">✔ Content strategy<br>✔ Reels growth<br>✔ Authority build</p>
+</div>
+
+<div id="social" class="page">
+<div class="back" onclick="goHome()">⬅ Back</div>
+<h2 style="padding:20px;">Social Media</h2>
+<p style="padding:20px;">✔ Daily posts<br>✔ Engagement<br>✔ Growth strategy</p>
+</div>
+
+<!-- PAYMENT -->
+<section class="payment">
+<div class="payment-box">
+
+<h2>Marketing Package</h2>
+<h1 style="color:#22c55e;">₹10,000</h1>
+
+<input type="text" id="name" placeholder="Name">
+<input type="text" id="phone" placeholder="Phone">
+
+<button class="btn" onclick="payNow()">Pay Now</button>
+
+<a href="upi://pay?pa=9080985296@ybl&pn=Naga&am=10000&cu=INR" class="btn">Pay via UPI</a>
 
 </div>
 </section>
-
-<!-- MODAL -->
-<div class="modal" id="modal">
-<div class="modal-content">
-<span class="close" onclick="closeModal()">✖</span>
-<h2 id="title"></h2>
-<p id="desc"></p>
-</div>
-</div>
-
-<!-- CONTACT -->
-<section class="section contact">
-<h2>Contact Us</h2>
-
-<input type="text" placeholder="Name">
-<input type="email" placeholder="Email">
-<textarea placeholder="Message"></textarea>
-
-<a href="https://wa.me/919080985296?text=Hi%20I%20am%20interested" class="btn">Send Message</a>
-</section>
-
-<!-- FOOTER -->
-<div class="footer">
-<h2>Let's Work Together</h2>
-<p>Growth Agency</p>
-</div>
-
-<!-- WHATSAPP FLOAT -->
-<div class="whatsapp">
-<a href="https://wa.me/919080985296">💬</a>
-</div>
 
 <script>
-function openModal(type){
-let title="",desc="";
-
-if(type=="meta"){
-title="Meta Ads";
-desc="Ad creatives, targeting, A/B testing, scaling for sales.";
-}
-if(type=="google"){
-title="Google Ads";
-desc="Search ads, display ads, retargeting campaigns.";
-}
-if(type=="branding"){
-title="Personal Branding";
-desc="Content strategy, reels, authority building.";
-}
-if(type=="social"){
-title="Social Media Management";
-desc="Posting, engagement, growth strategy.";
+function openPage(id){
+document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+document.getElementById(id).classList.add('active');
 }
 
-document.getElementById("title").innerText=title;
-document.getElementById("desc").innerText=desc;
-document.getElementById("modal").style.display="flex";
+function goHome(){
+document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+document.getElementById('home').classList.add('active');
 }
 
-function closeModal(){
-document.getElementById("modal").style.display="none";
+function payNow(){
+let name=document.getElementById("name").value;
+let phone=document.getElementById("phone").value;
+
+if(name==""||phone==""){
+alert("Fill details");
+return;
+}
+
+window.location.href="upi://pay?pa=9080985296@ybl&pn=Naga&am=10000&cu=INR";
+
+setTimeout(()=>{
+window.open("https://wa.me/919080985296?text=Paid%20₹10,000%0AName:"+name+"%0APhone:"+phone);
+},5000);
 }
 </script>
 

@@ -1,62 +1,250 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Smart Agriculture</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smart Agriculture System</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
 <style>
-body{font-family:Arial;background:#0b1a2a;color:#fff;text-align:center}
-input,select{padding:10px;margin:5px;width:80%}
-button{padding:10px;background:#00ff9d;border:none}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+
+body{background:#0b1a2a;color:#fff}
+
+/* NAV */
+nav{
+display:flex;
+justify-content:space-between;
+padding:15px 20px;
+background:#020617;
+position:sticky;
+top:0;
+z-index:1000;
+}
+nav h1{color:#00ff9d}
+nav a{color:#ccc;margin-left:15px;text-decoration:none}
+
+/* HERO */
+.hero{
+padding:80px 20px;
+text-align:center;
+background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
+url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6');
+background-size:cover;
+}
+.hero h1{font-size:38px}
+.hero p{margin:10px 0;color:#ddd}
+.btn{
+padding:12px 25px;
+background:#00ff9d;
+color:#000;
+border-radius:30px;
+text-decoration:none;
+display:inline-block;
+margin-top:10px;
+}
+
+/* SECTION */
+.section{
+padding:60px 20px;
+text-align:center;
+}
+.section h2{margin-bottom:20px}
+
+/* GRID */
+.grid{
+display:grid;
+grid-template-columns:1fr;
+gap:20px;
+}
+
+/* CARD */
+.card{
+background:#111827;
+padding:20px;
+border-radius:15px;
+box-shadow:0 5px 20px rgba(0,0,0,0.5);
+}
+
+/* DASHBOARD */
+.dashboard{
+display:none;
+padding:20px;
+}
+.dashboard h2{margin-bottom:20px}
+
+.dashboard-box{
+background:#111827;
+padding:15px;
+margin:10px 0;
+border-radius:10px;
+}
+
+/* FORM */
+input,select{
+width:100%;
+padding:12px;
+margin:10px 0;
+border-radius:8px;
+border:none;
+}
+
+button{
+padding:12px;
+width:100%;
+background:#00ff9d;
+border:none;
+border-radius:25px;
+}
+
+/* FOOTER */
+footer{
+text-align:center;
+padding:20px;
+background:#020617;
+margin-top:30px;
+}
+
+/* DESKTOP */
+@media(min-width:768px){
+.grid{
+grid-template-columns:repeat(3,1fr);
+}
+.hero h1{font-size:50px}
+}
+
 </style>
 </head>
 
 <body>
 
-<h1>🌾 Smart Agriculture System</h1>
+<!-- NAV -->
+<nav>
+<h1>AgriTech</h1>
+<div>
+<a href="#features">Features</a>
+<a href="#ai">AI</a>
+<a href="#register">Register</a>
+</div>
+</nav>
 
-<h3>Farmer Registration</h3>
+<!-- HERO -->
+<section class="hero">
+<h1>Smart Agriculture Platform 🌾</h1>
+<p>AI-powered farming solution for modern farmers</p>
+<a href="#register" class="btn">Get Started</a>
+</section>
 
-<input id="name" placeholder="Name"><br>
-<input id="email" placeholder="Email"><br>
-<input id="location" placeholder="Location"><br>
+<!-- FEATURES -->
+<section class="section" id="features">
+<h2>Core Features</h2>
+<div class="grid">
+<div class="card">🌱 Crop Recommendation</div>
+<div class="card">🌦 Weather Updates</div>
+<div class="card">🧪 Fertilizer Suggestions</div>
+<div class="card">🛒 Sell Products</div>
+<div class="card">📊 Farm Analytics</div>
+<div class="card">📱 Mobile Friendly</div>
+</div>
+</section>
+
+<!-- AI SECTION -->
+<section class="section" id="ai">
+<h2>AI Features</h2>
+<div class="grid">
+<div class="card">🤖 Crop Prediction</div>
+<div class="card">📈 Price Prediction</div>
+<div class="card">🌍 Smart Insights</div>
+</div>
+</section>
+
+<!-- REGISTER -->
+<section class="section" id="register">
+<h2>Farmer Registration</h2>
+
+<input id="name" placeholder="Name">
+<input id="email" placeholder="Email">
+<input id="location" placeholder="Location">
 
 <select id="soil">
 <option>red</option>
 <option>black</option>
 <option>alluvial</option>
-</select><br>
+</select>
 
-<button onclick="register()">Register</button>
+<button onclick="login()">Register & Continue</button>
 
-<h3>Crop Recommendation</h3>
-<button onclick="getCrop()">Suggest Crop</button>
+</section>
 
-<p id="result"></p>
+<!-- DASHBOARD -->
+<section class="dashboard" id="dashboard">
+
+<h2>Farmer Dashboard</h2>
+
+<div class="dashboard-box">
+<h3>🌱 Crop Suggestion</h3>
+<button onclick="crop()">Get Suggestion</button>
+<p id="cropResult"></p>
+</div>
+
+<div class="dashboard-box">
+<h3>🌦 Weather</h3>
+<p>Coming Soon (API)</p>
+</div>
+
+<div class="dashboard-box">
+<h3>💰 Market Price</h3>
+<p>Coming Soon</p>
+</div>
+
+<div class="dashboard-box">
+<h3>📊 Your Details</h3>
+<p id="userData"></p>
+</div>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+<p>© 2026 Smart Agriculture</p>
+</footer>
 
 <script>
 
-function register(){
-fetch("http://localhost:8080/api/register",{
-method:"POST",
-headers:{"Content-Type":"application/json"},
-body:JSON.stringify({
-name:document.getElementById("name").value,
-email:document.getElementById("email").value,
-location:document.getElementById("location").value,
-soilType:document.getElementById("soil").value
-})
-})
-.then(res=>res.json())
-.then(data=>alert("Registered Successfully"))
+/* LOGIN */
+function login(){
+let name=document.getElementById('name').value;
+let email=document.getElementById('email').value;
+let soil=document.getElementById('soil').value;
+
+if(!name||!email){
+alert("Fill all details");
+return;
 }
 
-function getCrop(){
-let soil=document.getElementById("soil").value;
+/* Hide register show dashboard */
+document.getElementById('register').style.display='none';
+document.getElementById('dashboard').style.display='block';
 
-fetch(`http://localhost:8080/api/crop?soil=${soil}`)
-.then(res=>res.text())
-.then(data=>{
-document.getElementById("result").innerText="Recommended Crop: "+data;
-})
+/* Save data */
+localStorage.setItem("user",JSON.stringify({name,email,soil}));
+
+document.getElementById('userData').innerText=
+"Name: "+name+" | Soil: "+soil;
+}
+
+/* CROP AI (simple logic) */
+function crop(){
+let user=JSON.parse(localStorage.getItem("user"));
+let soil=user.soil;
+
+let result="Rice";
+
+if(soil=="red") result="Groundnut";
+if(soil=="black") result="Cotton";
+
+document.getElementById('cropResult').innerText="Recommended: "+result;
 }
 
 </script>
